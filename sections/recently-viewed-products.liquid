@@ -4,7 +4,7 @@
   "pageDots": false,
   "wrapAround": false,
   "contain": true,
-  "cellAlign": "center",
+  "cellAlign": "left",
   "watchCSS": true,
   "dragThreshold": 8,
   "groupCells": true,
@@ -18,7 +18,7 @@
 }
 {%- endcapture -%}
 
-<section class="Section Section--spacingNormal" data-section-id="{{ section.id }}" data-section-type="recently-viewed-products" data-section-settings='{{ section_settings }}'>
+<section class="Section Section--spacingNormal recently-viewed-products-section" data-section-id="{{ section.id }}" data-section-type="recently-viewed-products" data-section-settings='{{ section_settings }}'>
   {%- if section.settings.title != blank -%}
     <header class="SectionHeader SectionHeader--center">
       <div class="Container">

@@ -3,6 +3,19 @@
 {%- assign text_font_bold_italic = text_font_bold | font_modify: 'style', 'italic' -%}
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:wght@300;400&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+  @font-face {
+    font-family: VeryVoguue-Display;
+    src: url({{ 'VeryVogue-Display.otf' | asset_url }}) format("opentype");
+  }
+
+  @font-face {
+      font-family: VeryVoguue-Display;
+      font-style: italic;
+      src: url({{ 'VeryVogue-Display-Italic.otf' | asset_url }}) format("opentype");
+  }
+
   {{ settings.heading_font | font_face: font_display: 'fallback' }}
   {{ settings.text_font | font_face: font_display: 'fallback' }}
 
@@ -11,11 +24,11 @@
   {{ text_font_bold_italic | font_face: font_display: 'fallback' }}
 
   :root {
-    --heading-font-family : {{settings.heading_font.family}}, {{ settings.heading_font.fallback_families }};
+    --heading-font-family : VeryVoguue-Display;
     --heading-font-weight : {{settings.heading_font.weight}};
     --heading-font-style  : {{settings.heading_font.style}};
 
-    --text-font-family : {{settings.text_font.family}}, {{ settings.text_font.fallback_families }};
+    --text-font-family : 'Work Sans', sans-serif;
     --text-font-weight : {{settings.text_font.weight}};
     --text-font-style  : {{settings.text_font.style}};
 
@@ -129,7 +142,7 @@
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = 'https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2';
-    script.onload = function() {
+    script.onload = function () {
       cssVars({});
     };
 

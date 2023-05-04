@@ -1,12 +1,5 @@
 {
   "current": {
-    "checkout_logo_position": "center",
-    "checkout_logo_size": "small",
-    "checkout_body_background_color": "#ffffff",
-    "checkout_input_background_color_mode": "white",
-    "checkout_sidebar_background_color": "#efefef",
-    "checkout_accent_color": "#1c1b1b",
-    "checkout_button_color": "#1c1b1b",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -22,15 +15,15 @@
     "footer_background": "#ffffff",
     "footer_heading_color": "#1c1b1b",
     "footer_text_color": "#6a6a6a",
+    "navigation_background": "#1c1b1b",
+    "navigation_text_color": "#ffffff",
     "newsletter_popup_background": "#1c1b1b",
     "newsletter_popup_text_color": "#ffffff",
     "secondary_elements_background": "#1c1b1b",
     "secondary_elements_text_color": "#ffffff",
-    "navigation_background": "#1c1b1b",
-    "navigation_text_color": "#ffffff",
     "heading_font": "montserrat_n5",
     "heading_size": "small",
-    "uppercase_heading": true,
+    "uppercase_heading": false,
     "text_font": "nunito_sans_n4",
     "base_text_font_size": 14,
     "show_page_transition": false,
@@ -45,30 +38,88 @@
     "cart_enable_notes": true,
     "cart_show_free_shipping_threshold": false,
     "cart_free_shipping_threshold": "50",
+    "social_email": "test@email.com",
+    "social_facebook": "https:\/\/www.facebook.com\/shopify",
+    "social_instagram": "https:\/\/instagram.com\/shopify",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "small",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_color": "#efefef",
+    "checkout_accent_color": "#1c1b1b",
+    "checkout_button_color": "#1c1b1b",
     "sections": {
       "sidebar-menu": {
         "type": "sidebar-menu",
+        "blocks": {
+          "2db8f0e5-a162-4503-8e94-274409e00252": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_10.34_1_2.png"
+            }
+          },
+          "01308415-371c-4c69-ba87-9e1d72b3682e": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/SPACE_DYE_KNIT_SHORTS_2_1.png"
+            }
+          }
+        },
+        "block_order": [
+          "2db8f0e5-a162-4503-8e94-274409e00252",
+          "01308415-371c-4c69-ba87-9e1d72b3682e"
+        ],
         "settings": {
-          "primary_menu": "main-menu",
+          "primary_menu": "shop",
+          "secondary_menu": "about",
           "show_social_media": true
         }
       },
       "announcement": {
         "type": "announcement",
         "settings": {
+          "enable_bar": false,
+          "home_page_only": false,
           "background": "#000000",
           "text_color": "#ffffff",
-          "content": "Announce something here"
+          "content": "Announce something here",
+          "link": ""
         }
       },
       "header": {
         "type": "header",
+        "blocks": {
+          "08fc118a-1972-45b5-a194-cd53d6dafba6": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "shop",
+              "push_1_image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_10.34_1_2.png",
+              "push_1_heading": "Shop Woven Shirts",
+              "push_1_subheading": "",
+              "push_1_url": "",
+              "push_2_image": "shopify:\/\/shop_images\/SPACE_DYE_KNIT_SHORTS_2_1.png",
+              "push_2_heading": "Shop Space Dye Knit Shorts",
+              "push_2_subheading": "",
+              "push_2_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "08fc118a-1972-45b5-a194-cd53d6dafba6"
+        ],
         "settings": {
           "use_sticky_header": true,
-          "logo_max_width": 140,
-          "navigation_menu": "main-menu",
+          "logo": "shopify:\/\/shop_images\/image_10_3.png",
+          "logo_max_width": 190,
+          "mobile_logo_max_width": 110,
+          "show_country_selector": false,
+          "show_locale_selector": true,
+          "navigation_menu": "main-menu-by-evm",
           "navigation_style": "inline",
-          "enable_transparent_header": true,
+          "show_icons": false,
+          "enable_transparent_header": false,
+          "enable_transparent_header_collection": false,
+          "show_transparent_header_border": true,
           "transparent_text_color": "#ffffff"
         }
       },
@@ -78,35 +129,59 @@
           "footer-0": {
             "type": "text",
             "settings": {
-              "title": "About the shop",
-              "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
+              "logo": "shopify:\/\/shop_images\/image_10_3.png",
               "show_social_media": true
             }
           },
           "footer-1": {
             "type": "links",
             "settings": {
-              "menu": "footer"
+              "menu": "footer-menu-1-by-evm"
+            }
+          },
+          "4f2018bb-4b0a-4009-b544-c87d46476bab": {
+            "type": "links",
+            "settings": {
+              "menu": "footer-menu-2-by-evm"
             }
           },
           "footer-2": {
             "type": "newsletter",
             "settings": {
-              "title": "Newsletter",
-              "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"
+              "title": "Sign up for our newsletter",
+              "content": "<p>COPYRIGHT © 2023, <a href=\"#\" title=\"#\">POSTMARC<\/a><\/p>"
             }
           }
         },
         "block_order": [
           "footer-0",
           "footer-1",
+          "4f2018bb-4b0a-4009-b544-c87d46476bab",
           "footer-2"
         ],
         "settings": {
-          "show_payment_methods": true
+          "show_payment_methods": false,
+          "show_country_selector": false,
+          "show_locale_selector": false
+        }
+      },
+      "popup": {
+        "type": "popup",
+        "settings": {
+          "show_popup": false,
+          "show_only_on_index": true,
+          "show_only_for_visitors": true,
+          "show_only_once": true,
+          "title": "Popup",
+          "content": "<p>You can use this popup to display some useful information to your customers.<\/p>",
+          "show_newsletter": true,
+          "apparition_delay": 5
         }
       }
-    }
+    },
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Allure": {
@@ -188,8 +263,6 @@
             "footer-0": {
               "type": "text",
               "settings": {
-                "title": "About the shop",
-                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
                 "show_social_media": true
               }
             },
@@ -297,8 +370,6 @@
             "footer-0": {
               "type": "text",
               "settings": {
-                "title": "About the shop",
-                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
                 "show_social_media": true
               }
             },
@@ -407,8 +478,6 @@
             "footer-0": {
               "type": "text",
               "settings": {
-                "title": "About the shop",
-                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
                 "show_social_media": true
               }
             },

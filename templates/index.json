@@ -6,19 +6,31 @@
         "slide-0": {
           "type": "image",
           "settings": {
-            "apply_overlay": true,
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_9.18_1.png",
+            "mobile_image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_9.18_1_1.png",
+            "apply_overlay": false,
             "content_position": "bottomLeft",
-            "subheading": "Slide title",
-            "title": "Tell your story"
+            "subheading": "",
+            "title": "Spring & Summer",
+            "button_1_text": "Shop Now",
+            "button_1_link": "#",
+            "button_2_text": "",
+            "button_2_link": ""
           }
         },
         "slide-1": {
           "type": "image",
           "settings": {
-            "apply_overlay": true,
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_9.18_1.png",
+            "mobile_image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_9.18_1_1.png",
+            "apply_overlay": false,
             "content_position": "bottomLeft",
             "subheading": "Slide title",
-            "title": "Tell your story"
+            "title": "Tell your story",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": ""
           }
         }
       },
@@ -27,12 +39,13 @@
         "slide-1"
       ],
       "settings": {
-        "show_fullscreen": true,
+        "show_fullscreen": false,
         "show_arrow": false,
         "autoplay": true,
         "cycle_speed": 5,
         "text_color": "#ffffff",
-        "button_color": "#363636"
+        "button_color": "#ffffff",
+        "button_background": "#db0632"
       }
     },
     "featured-collections": {
@@ -41,18 +54,32 @@
         "featured-collection-0": {
           "type": "collection",
           "settings": {
+            "collection": "knitwear",
+            "title": "",
+            "grid_items_count": 8,
+            "button_text": "Shop New Arrivals"
+          }
+        },
+        "6135660b-a555-475d-b9e1-0e9180bdd87f": {
+          "type": "collection",
+          "settings": {
+            "collection": "woven-shirts",
+            "title": "",
             "grid_items_count": 8,
             "button_text": "View all products"
           }
         }
       },
       "block_order": [
-        "featured-collection-0"
+        "featured-collection-0",
+        "6135660b-a555-475d-b9e1-0e9180bdd87f"
       ],
       "settings": {
-        "title": "Featured collection",
-        "layout_mode": "grid",
+        "title": "New Arrivals",
+        "layout_mode": "carousel",
         "show_product_info": true,
+        "show_vendor": false,
+        "show_color_swatch": false,
         "grid_mobile_items_per_row": "2",
         "grid_desktop_items_per_row": 4
       }
@@ -63,28 +90,44 @@
         "collection-0": {
           "type": "collection",
           "settings": {
+            "large": false,
+            "collection": "woven-shirts",
             "image_alignment": "center center",
-            "subheading": "Sub-heading",
-            "button_text": "View products",
-            "apply_overlay": true
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "Woven Shirts",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "apply_overlay": false
           }
         },
         "collection-1": {
           "type": "collection",
           "settings": {
+            "large": false,
+            "collection": "knitwear",
             "image_alignment": "center center",
-            "subheading": "Sub-heading",
-            "button_text": "View products",
-            "apply_overlay": true
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "Knitwear",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "apply_overlay": false
           }
         },
         "collection-2": {
           "type": "collection",
           "settings": {
+            "large": true,
+            "collection": "space-dye-knit-shorts",
+            "image": "shopify:\/\/shop_images\/SPACE_DYE_KNIT_SHORTS_2_17e49299-e824-44d2-9093-6899fa2cf022.png",
             "image_alignment": "center center",
-            "subheading": "Sub-heading",
-            "button_text": "View products",
-            "apply_overlay": true
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "Space Dye Knit Shorts",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "apply_overlay": false
           }
         }
       },
@@ -94,143 +137,102 @@
         "collection-2"
       ],
       "settings": {
+        "image_size": "normal",
         "add_spacing": true,
         "expand_collection": false,
+        "stack_on_mobile": true,
         "text_color": "#ffffff",
         "button_color": "#363636"
       }
     },
-    "featured-product": {
-      "type": "featured-product",
+    "b9b041ae-6bdc-4261-8193-55ce00a61028": {
+      "type": "icon-with-texts",
       "blocks": {
-        "product-meta": {
-          "type": "product_meta",
-          "settings": {
-          }
-        },
-        "share-buttons": {
-          "type": "share_buttons",
-          "settings": {
-          }
-        },
-        "variant-selector": {
-          "type": "variant_selector",
-          "settings": {
-          }
-        },
-        "buy-buttons": {
-          "type": "buy_buttons",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "product-meta",
-        "share-buttons",
-        "variant-selector",
-        "buy-buttons"
-      ],
-      "settings": {
-        "title": "Featured product"
-      }
-    },
-    "timeline": {
-      "type": "timeline",
-      "blocks": {
-        "item-0": {
+        "b12da8f5-10cf-49e0-9c80-ceabef9ef61a": {
           "type": "item",
           "settings": {
-            "apply_overlay": true,
-            "title": "2000",
-            "subheading": "Sub-heading",
-            "heading": "Heading",
-            "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+            "icon_svg_content": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"64\" height=\"64\" viewbox=\"0 0 64 64\" fill=\"none\">\n<circle cx=\"32\" cy=\"32\" r=\"32\" fill=\"#CABA92\"><\/circle>\n<path d=\"M22.3327 46.2915C20.9716 46.2915 19.8118 45.8123 18.8535 44.854C17.8952 43.8957 17.416 42.7359 17.416 41.3748H14.666V22.1665C14.666 21.4998 14.916 20.9165 15.416 20.4165C15.916 19.9165 16.4993 19.6665 17.166 19.6665H41.291V26.6248H45.666L51.3327 34.1665V41.3748H48.3744C48.3744 42.7359 47.8952 43.8957 46.9368 44.854C45.9785 45.8123 44.8188 46.2915 43.4577 46.2915C42.0966 46.2915 40.9368 45.8123 39.9785 44.854C39.0202 43.8957 38.541 42.7359 38.541 41.3748H27.2493C27.2493 42.7359 26.7702 43.8957 25.8118 44.854C24.8535 45.8123 23.6938 46.2915 22.3327 46.2915ZM22.3327 43.7915C22.9993 43.7915 23.5688 43.5554 24.041 43.0832C24.5132 42.6109 24.7493 42.0415 24.7493 41.3748C24.7493 40.7082 24.5132 40.1387 24.041 39.6665C23.5688 39.1943 22.9993 38.9582 22.3327 38.9582C21.666 38.9582 21.0966 39.1943 20.6243 39.6665C20.1521 40.1387 19.916 40.7082 19.916 41.3748C19.916 42.0415 20.1521 42.6109 20.6243 43.0832C21.0966 43.5554 21.666 43.7915 22.3327 43.7915ZM17.166 38.8748H18.0827C18.5549 38.1248 19.1521 37.5276 19.8743 37.0832C20.5966 36.6387 21.4021 36.4165 22.291 36.4165C23.1799 36.4165 23.9924 36.6457 24.7285 37.104C25.4646 37.5623 26.0688 38.1526 26.541 38.8748H38.791V22.1665H17.166V38.8748ZM43.4577 43.7915C44.1243 43.7915 44.6938 43.5554 45.166 43.0832C45.6382 42.6109 45.8744 42.0415 45.8744 41.3748C45.8744 40.7082 45.6382 40.1387 45.166 39.6665C44.6938 39.1943 44.1243 38.9582 43.4577 38.9582C42.791 38.9582 42.2216 39.1943 41.7493 39.6665C41.2771 40.1387 41.041 40.7082 41.041 41.3748C41.041 42.0415 41.2771 42.6109 41.7493 43.0832C42.2216 43.5554 42.791 43.7915 43.4577 43.7915ZM41.291 35.2915H49.041L44.416 29.1248H41.291V35.2915Z\" fill=\"white\"><\/path>\n<\/svg>",
+            "title": "Free Shipping",
+            "subtitle": "<p>Free shipping on orders $50 or more in the United States.<\/p>"
           }
         },
-        "item-1": {
+        "eab21cfa-46fc-4979-80fc-132238da0595": {
           "type": "item",
           "settings": {
-            "apply_overlay": true,
-            "title": "2001",
-            "subheading": "Sub-heading",
-            "heading": "Heading",
-            "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
-          }
-        },
-        "item-2": {
-          "type": "item",
-          "settings": {
-            "apply_overlay": true,
-            "title": "2002",
-            "subheading": "Sub-heading",
-            "heading": "Heading",
-            "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+            "icon_svg_content": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"64\" height=\"64\" viewbox=\"0 0 64 64\" fill=\"none\">\n<circle cx=\"32\" cy=\"32\" r=\"32\" fill=\"#CABA92\"><\/circle>\n<path d=\"M15.334 42.6665V40.1665H48.6673V42.6665H15.334ZM16.584 37.6665V36.9582C16.584 32.6526 17.8132 29.1804 20.2715 26.5415C22.7298 23.9026 25.8062 22.1943 29.5007 21.4165V20.1665C29.5007 19.4443 29.7368 18.8471 30.209 18.3748C30.6812 17.9026 31.2784 17.6665 32.0007 17.6665C32.7229 17.6665 33.3201 17.9026 33.7923 18.3748C34.2645 18.8471 34.5007 19.4443 34.5007 20.1665V21.4165C38.1951 22.1943 41.2715 23.9026 43.7298 26.5415C46.1882 29.1804 47.4173 32.6526 47.4173 36.9582V37.6665H16.584ZM19.209 35.1665H44.7923C44.4034 31.6109 42.9798 28.8262 40.5215 26.8123C38.0631 24.7984 35.209 23.7915 31.959 23.7915C28.709 23.7915 25.8687 24.7984 23.4382 26.8123C21.0076 28.8262 19.5979 31.6109 19.209 35.1665Z\" fill=\"white\"><\/path>\n<\/svg>",
+            "title": "We’re here to help",
+            "subtitle": "<p>Have questions or comments? Feel free to <a href=\"#\" title=\"#\">drop us a line<\/a>.<\/p>"
           }
         }
       },
       "block_order": [
-        "item-0",
-        "item-1",
-        "item-2"
+        "b12da8f5-10cf-49e0-9c80-ceabef9ef61a",
+        "eab21cfa-46fc-4979-80fc-132238da0595"
       ],
       "settings": {
-        "text_color": "#ffffff"
+        "bg_color": "#f8f8f8"
       }
     },
-    "blog-posts": {
-      "type": "blog-posts",
+    "ce47cd9b-753b-4880-8535-0b238447307c": {
+      "type": "collection-list",
       "blocks": {
-        "blog-0": {
-          "type": "blog",
+        "template--16093107749050__ce47cd9b-753b-4880-8535-0b238447307c-16817147968cc7875c-0": {
+          "type": "collection",
           "settings": {
-            "blog": "news"
-          }
-        }
-      },
-      "block_order": [
-        "blog-0"
-      ],
-      "settings": {
-        "title": "Featured article",
-        "show_category": false,
-        "button_text": "View all articles"
-      }
-    },
-    "shop-the-look": {
-      "type": "shop-the-look",
-      "blocks": {
-        "look-0": {
-          "type": "look",
-          "settings": {
-            "dot_style": "light",
-            "product_1_horizontal_position": 30,
-            "product_1_vertical_position": 40,
-            "product_2_horizontal_position": 45,
-            "product_2_vertical_position": 65,
-            "product_3_horizontal_position": 70,
-            "product_3_vertical_position": 50
+            "large": true,
+            "collection": "plain-knit-shorts",
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_10.52_1_8b2b4462-a46a-4b3f-8632-d25007ad613a.png",
+            "image_alignment": "center center",
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "Plain Knit Shorts",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "apply_overlay": false
           }
         },
-        "look-1": {
-          "type": "look",
+        "template--16093107749050__ce47cd9b-753b-4880-8535-0b238447307c-16817147968cc7875c-1": {
+          "type": "collection",
           "settings": {
-            "dot_style": "light",
-            "product_1_horizontal_position": 25,
-            "product_1_vertical_position": 45,
-            "product_2_horizontal_position": 55,
-            "product_2_vertical_position": 30,
-            "product_3_horizontal_position": 65,
-            "product_3_vertical_position": 60
+            "large": false,
+            "collection": "woven-shorts",
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_10.34_1_1_bcba7ac0-2412-4349-91a8-433dc481c41c.png",
+            "image_alignment": "center center",
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "Woven Shorts",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "apply_overlay": false
+          }
+        },
+        "template--16093107749050__ce47cd9b-753b-4880-8535-0b238447307c-16817147968cc7875c-2": {
+          "type": "collection",
+          "settings": {
+            "large": false,
+            "collection": "jacquard-knit-shorts",
+            "image_alignment": "center center",
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "title": "Jacquard Knit Shorts",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "apply_overlay": false
           }
         }
       },
       "block_order": [
-        "look-0",
-        "look-1"
+        "template--16093107749050__ce47cd9b-753b-4880-8535-0b238447307c-16817147968cc7875c-0",
+        "template--16093107749050__ce47cd9b-753b-4880-8535-0b238447307c-16817147968cc7875c-1",
+        "template--16093107749050__ce47cd9b-753b-4880-8535-0b238447307c-16817147968cc7875c-2"
       ],
       "settings": {
-        "subheading": "Shop",
-        "title": "Our looks"
+        "image_size": "normal",
+        "add_spacing": true,
+        "expand_collection": false,
+        "stack_on_mobile": true,
+        "text_color": "#ffffff",
+        "button_color": "#363636"
       }
     }
   },
@@ -238,9 +240,7 @@
     "slideshow",
     "featured-collections",
     "collection-list",
-    "featured-product",
-    "timeline",
-    "blog-posts",
-    "shop-the-look"
+    "b9b041ae-6bdc-4261-8193-55ce00a61028",
+    "ce47cd9b-753b-4880-8535-0b238447307c"
   ]
 }

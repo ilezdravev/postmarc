@@ -123,12 +123,12 @@ Implementation note: make sure that the Search div is always just before the Hea
           <span class="hidden-phone">{%- render 'icon' with 'search-desktop' -%}</span>
         </div>
 
-        <input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="{{ 'search.general.input_placeholder' | t }}" placeholder="{{ 'search.general.input_placeholder' | t }}" autofocus>
+        <input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="{{ 'search.general.input_placeholder' | t }}" placeholder="Search postmarc for your next outfit" autofocus>
         <input type="hidden" name="type" value="product">
         <input type="hidden" name="options[prefix]" value="last">
       </form>
 
-      <button class="Search__Close Link Link--primary" data-action="close-search" aria-label="{{ 'header.navigation.close_search' | t }}">{% render 'icon' with 'close' %}</button>
+      {% comment %} <button class="Search__Close Link Link--primary" data-action="close-search" aria-label="{{ 'header.navigation.close_search' | t }}">{% render 'icon' with 'search-close' %}</button> {% endcomment %}
     </div>
 
     <div class="Search__Results" aria-hidden="true">
@@ -168,6 +168,11 @@ HEADER CONTENT
         <span class="hidden-tablet-and-up">{%- render 'icon' with 'nav' -%}</span>
         <span class="hidden-phone">{%- render 'icon' with 'nav-desktop' -%}</span>
       </button>
+
+      <a href="{{ routes.search_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" data-action="toggle-search" aria-label="{{ 'header.navigation.search' | t }}">
+        <span class="hidden-tablet-and-up">{%- render 'icon' with 'search' -%}</span>
+        <span class="hidden-phone">{%- render 'icon' with 'search-desktop' -%}</span>
+      </a>
 
       {%- comment -%}
       --------------------------------------------------------------------------------------------------------------------
@@ -402,21 +407,32 @@ HEADER CONTENT
               </li>
             {%- endif -%}
 
+            <li class="HorizontalList__Item">
+              <a href="{{ routes.search_url }}" class="Heading Link Link--primary Text--subdued u-h8" data-action="toggle-search">{% render 'icon' with 'search' %}</a>
+            </li>
+
+            <li class="HorizontalList__Item">
+              <a href="{{ routes.cart_url }}" class="Heading u-h6" {% unless template == 'cart' or settings.cart_type == 'page' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-label="{{ 'header.navigation.open_cart' | t }}"{% endunless %}>{% render 'icon' with 'cart' %} <span class="Header__CartDot {% if cart.item_count > 0 %}is-visible{% endif %}"></span></a>
+            </li>
+
             {%- if shop.customer_accounts_enabled -%}
               <li class="HorizontalList__Item">
-                <a href="{{ routes.account_url }}" class="Heading Link Link--primary Text--subdued u-h8">
-                  {{- 'header.navigation.account' | t -}}
+                <a href="{{ routes.account_url }}" class="Heading Link Link--primary header-account-link Text--subdued u-h8">
+                  {% render 'icon' with 'account' %}
+                  <span>
+                    {% if customer.name != blank %}
+                      Sign In
+                    {% else %}
+                      {{- 'header.navigation.account' | t -}}
+                    {% endif %}
+                  </span>
                 </a>
               </li>
             {%- endif -%}
 
-            <li class="HorizontalList__Item">
-              <a href="{{ routes.search_url }}" class="Heading Link Link--primary Text--subdued u-h8" data-action="toggle-search">{{ 'header.navigation.search' | t }}</a>
-            </li>
 
-            <li class="HorizontalList__Item">
-              <a href="{{ routes.cart_url }}" class="Heading u-h6" {% unless template == 'cart' or settings.cart_type == 'page' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-label="{{ 'header.navigation.open_cart' | t }}"{% endunless %}>{{ 'header.navigation.cart' | t }} (<span class="Header__CartCount">{{ cart.item_count }}</span>)</a>
-            </li>
+
+
           </ul>
         </nav>
       {%- elsif localization_form != blank -%}
@@ -435,16 +451,18 @@ HEADER CONTENT
         </a>
       {%- endif -%}
 
-      <a href="{{ routes.search_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" data-action="toggle-search" aria-label="{{ 'header.navigation.search' | t }}">
-        <span class="hidden-tablet-and-up">{%- render 'icon' with 'search' -%}</span>
-        <span class="hidden-phone">{%- render 'icon' with 'search-desktop' -%}</span>
-      </a>
+
 
       <a href="{{ routes.cart_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" {% if settings.cart_type == 'drawer' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false" aria-label="{{ 'header.navigation.open_cart' | t }}"{% endif %}>
         <span class="hidden-tablet-and-up">{%- render 'icon' with 'cart' -%}</span>
         <span class="hidden-phone">{%- render 'icon' with 'cart-desktop' -%}</span>
         <span class="Header__CartDot {% if cart.item_count > 0 %}is-visible{% endif %}"></span>
       </a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="Heading Link Link--primary hidden-tablet-and-up header-account-link__mobile Text--subdued u-h8">
+          {% render 'icon' with 'account' %}
+        </a>
+      {%- endif -%}
     </div>
   </div>
 

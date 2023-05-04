@@ -52,10 +52,17 @@
               </div>
             {%- endfor -%}
           </nav>
-
+          <div class="side-bar-menu-image-wrap">
+            {% for block in section.blocks %}
+              <img class="Image--lazyLoad Image--fadeIn"
+              data-src="{{ block.settings.image | img_url: '370x230', scale: 2 }}"
+              alt="{{ block.settings.image.alt | escape }}">
+            {% endfor %}
+          </div>
           {%- assign secondary_menu = linklists[section.settings.secondary_menu] -%}
 
           <nav class="SidebarMenu__Nav SidebarMenu__Nav--secondary">
+            <h3 class="Heading">{{ section.settings.secondary_menu.title }}</h3>
             <ul class="Linklist Linklist--spacingLoose">
               {%- for link in secondary_menu.links -%}
                 <li class="Linklist__Item">
@@ -112,6 +119,19 @@
       "id": "show_social_media",
       "label": "Show social media",
       "default": true
+    }
+  ],
+  "blocks":[
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type":"image_picker",
+          "label":"image",
+          "id": "image"
+        }
+      ]
     }
   ]
 }

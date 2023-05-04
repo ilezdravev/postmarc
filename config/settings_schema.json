@@ -506,6 +506,11 @@
       },
       {
         "type": "text",
+        "id": "social_email",
+        "label": "Email"
+      },
+      {
+        "type": "text",
         "id": "social_facebook",
         "info": "https:\/\/www.facebook.com\/shopify",
         "label": "Facebook"

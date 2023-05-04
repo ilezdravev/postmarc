@@ -60,6 +60,10 @@
             <span class="ProductItem__Label Heading Text--subdued">{{ tag | split: '__label:' | last }}</span>
             {%- break -%}
           {%- endif -%}
+          {%- if tag == 'new' -%}
+            <span class="ProductItem__Label Heading Text--subdued">New</span>
+            {%- break -%}
+          {%- endif -%}
         {%- endfor -%}
 
         {%- if product.available -%}
@@ -79,6 +83,7 @@
     {%- endif -%}
 
     {%- if show_product_info -%}
+    <div class="ProductItem__bottom">
       <div class="ProductItem__Info {% unless use_horizontal %}ProductItem__Info--{{ settings.product_info_alignment }}{% endunless %}">
         {%- if show_vendor -%}
           <p class="ProductItem__Vendor Heading">{{ product.vendor }}</p>
@@ -201,6 +206,18 @@
           {{- color_swatch_list -}}
         {%- endif -%}
       </div>
+      <div class="ProductItem__quickadd">
+        <form method="post" action="/cart/add" accept-charset="UTF-8" enctype="multipart/form-data">
+          <input type="hidden" name="form_type" value="product">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <button class="productitem_quick_atc">
+            {% render 'icon' with 'quick-atc' %}
+          </button>
+        </form>
+      </div>
+    </div>
     {%- endif -%}
   </div>
 

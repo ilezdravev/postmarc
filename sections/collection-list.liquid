@@ -13,7 +13,7 @@
   {%- capture collection_items -%}
     {%- for block in section.blocks -%}
       {%- assign collection = collections[block.settings.collection] -%}
-      {%- render 'collection-item', block: block, collection: collection, apply_overlay: block.settings.apply_overlay -%}
+      {%- render 'collection-item', block: block, collection: collection, apply_overlay: block.settings.apply_overlay, is_large: block.settings.large -%}
     {%- endfor -%}
   {%- endcapture -%}
 
@@ -113,6 +113,12 @@
       "type": "collection",
       "name": "Collection",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "large",
+          "label": "Large",
+          "default": false
+        },
         {
           "type": "collection",
           "id": "collection",

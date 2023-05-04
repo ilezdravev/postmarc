@@ -3003,8 +3003,18 @@
       value: function _toggleSearch(event) {
         if (this.isOpen) {
           this._closeSearch(event);
+          document.querySelector('.Header__Wrapper').querySelector('[close-search-bar]').classList.add('hide')
+          document.querySelector('.Header__Wrapper').querySelector('[open-search-bar]').classList.remove('hide')
+          document.querySelector('.Header__Wrapper').querySelectorAll('[close-search-bar]')[1].classList.add('hide')
+          document.querySelector('.Header__Wrapper').querySelectorAll('[open-search-bar]')[1].classList.remove('hide')
+
+
         } else {
           this._openSearch(event);
+          document.querySelector('.Header__Wrapper').querySelector('[close-search-bar]').classList.remove('hide')
+          document.querySelector('.Header__Wrapper').querySelector('[open-search-bar]').classList.add('hide')
+          document.querySelector('.Header__Wrapper').querySelectorAll('[close-search-bar]')[1].classList.remove('hide')
+          document.querySelector('.Header__Wrapper').querySelectorAll('[open-search-bar]')[1].classList.add('hide')
         }
 
         event.preventDefault();
