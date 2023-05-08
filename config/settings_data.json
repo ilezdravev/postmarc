@@ -36,7 +36,7 @@
     "product_list_vertical_spacing": "small",
     "cart_type": "drawer",
     "cart_enable_notes": true,
-    "cart_show_free_shipping_threshold": false,
+    "cart_show_free_shipping_threshold": true,
     "cart_free_shipping_threshold": "50",
     "social_email": "test@email.com",
     "social_facebook": "https:\/\/www.facebook.com\/shopify",
@@ -52,25 +52,29 @@
       "sidebar-menu": {
         "type": "sidebar-menu",
         "blocks": {
-          "2db8f0e5-a162-4503-8e94-274409e00252": {
-            "type": "image",
+          "db8d5cc3-c783-487b-95f8-6e228d1e7f5c": {
+            "type": "block",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_10.34_1_2.png"
+              "image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_10.34_1_2.png",
+              "text": "",
+              "title": "Shop Woven Shirts"
             }
           },
-          "01308415-371c-4c69-ba87-9e1d72b3682e": {
-            "type": "image",
+          "8ea8b0c6-2ab0-4f5d-94cc-4d8589b2ef6f": {
+            "type": "block",
             "settings": {
-              "image": "shopify:\/\/shop_images\/SPACE_DYE_KNIT_SHORTS_2_1.png"
+              "image": "shopify:\/\/shop_images\/SPACE_DYE_KNIT_SHORTS_2_1.png",
+              "text": "",
+              "title": "Shop Woven Shirts"
             }
           }
         },
         "block_order": [
-          "2db8f0e5-a162-4503-8e94-274409e00252",
-          "01308415-371c-4c69-ba87-9e1d72b3682e"
+          "db8d5cc3-c783-487b-95f8-6e228d1e7f5c",
+          "8ea8b0c6-2ab0-4f5d-94cc-4d8589b2ef6f"
         ],
         "settings": {
-          "primary_menu": "shop",
+          "primary_menu": "main-menu-by-evm",
           "secondary_menu": "about",
           "show_social_media": true
         }
@@ -93,19 +97,39 @@
             "type": "mega_menu",
             "settings": {
               "navigation_mega_menu": "shop",
+              "limited_edition1": false,
               "push_1_image": "shopify:\/\/shop_images\/Screenshot_2023-02-01_at_10.34_1_2.png",
               "push_1_heading": "Shop Woven Shirts",
               "push_1_subheading": "",
               "push_1_url": "",
+              "limited_edition2": false,
               "push_2_image": "shopify:\/\/shop_images\/SPACE_DYE_KNIT_SHORTS_2_1.png",
               "push_2_heading": "Shop Space Dye Knit Shorts",
               "push_2_subheading": "",
               "push_2_url": ""
             }
+          },
+          "c2fad81f-8b64-4bf7-b366-e9982481f166": {
+            "type": "mega_menu_1",
+            "settings": {
+              "navigation_mega_menu": "Shirts",
+              "bg_image": "shopify:\/\/shop_images\/category_2.png",
+              "url": "shopify:\/\/collections\/jacquard-knit-shorts",
+              "text": "Shop Knitwear",
+              "bg_image_2": "shopify:\/\/shop_images\/category_3.png",
+              "url_2": "shopify:\/\/collections\/knitwear",
+              "text_2": "Shop Woven Shirts",
+              "product_1": "3-button-3d-geo-textured-knit-polo",
+              "product_2": "3-button-classic-knit-polo",
+              "product_3": "3-button-textured-mesh-knit-polo",
+              "product_4": "blue-abstract-print-short-sleeves-woven-shirt",
+              "product_5": ""
+            }
           }
         },
         "block_order": [
-          "08fc118a-1972-45b5-a194-cd53d6dafba6"
+          "08fc118a-1972-45b5-a194-cd53d6dafba6",
+          "c2fad81f-8b64-4bf7-b366-e9982481f166"
         ],
         "settings": {
           "use_sticky_header": true,
@@ -176,6 +200,11 @@
           "content": "<p>You can use this popup to display some useful information to your customers.<\/p>",
           "show_newsletter": true,
           "apparition_delay": 5
+        }
+      },
+      "mini-cart": {
+        "type": "mini-cart",
+        "settings": {
         }
       }
     },

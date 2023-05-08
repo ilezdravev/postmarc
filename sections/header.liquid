@@ -123,12 +123,12 @@ Implementation note: make sure that the Search div is always just before the Hea
           <span class="hidden-phone">{%- render 'icon' with 'search-desktop' -%}</span>
         </div>
 
-        <input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="{{ 'search.general.input_placeholder' | t }}" placeholder="Search postmarc for your next outfit" autofocus>
+        <input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="{{ 'search.general.input_placeholder' | t }}" placeholder="Search STEELE" autofocus>
         <input type="hidden" name="type" value="product">
         <input type="hidden" name="options[prefix]" value="last">
       </form>
 
-      {% comment %} <button class="Search__Close Link Link--primary" data-action="close-search" aria-label="{{ 'header.navigation.close_search' | t }}">{% render 'icon' with 'search-close' %}</button> {% endcomment %}
+      <button class="Search__Close Link Link--primary" data-action="close-search" aria-label="{{ 'header.navigation.close_search' | t }}">{% render 'icon' with 'search-close' %}</button>
     </div>
 
     <div class="Search__Results" aria-hidden="true">
@@ -187,7 +187,7 @@ HEADER CONTENT
         {%- assign mega_menu_names = '' -%}
 
         {%- for block in section.blocks -%}
-          {%- if block.type == 'mega_menu' -%}
+          {%- if block.type == 'mega_menu' or block.type == 'mega_menu_1' -%}
             {%- assign trim_mega_menu_name = block.settings.navigation_mega_menu | strip -%}
             {%- assign mega_menu_names = mega_menu_names | append: trim_mega_menu_name | append: ',' -%}
           {%- endif -%}
@@ -204,120 +204,164 @@ HEADER CONTENT
               {%- capture menu_item_dropdown -%}
                 {%- if mega_menu_names contains downcased_link_title -%}
                   {%- for block in section.blocks -%}
-                    {%- assign downcased_mega_menu_name = block.settings.navigation_mega_menu | downcase -%}
+                    {% if block.type == "mega_menu" %}
+                      {%- assign downcased_mega_menu_name = block.settings.navigation_mega_menu | downcase -%}
 
-                    {%- if downcased_mega_menu_name != downcased_link_title -%}
-                      {%- continue -%}
-                    {%- endif -%}
+                      {%- if downcased_mega_menu_name != downcased_link_title -%}
+                        {%- continue -%}
+                      {%- endif -%}
 
-                    {%- assign use_mega_menu = true -%}
-                    {%- assign push_image_count = 0 -%}
+                      {%- assign use_mega_menu = true -%}
+                      {%- assign push_image_count = 0 -%}
 
-                    {%- if block.settings.push_1_image -%}
-                      {%- assign push_image_count = push_image_count | plus: 1 -%}
-                    {%- endif -%}
+                      {%- if block.settings.push_1_image -%}
+                        {%- assign push_image_count = push_image_count | plus: 1 -%}
+                      {%- endif -%}
 
-                    {%- if block.settings.push_2_image -%}
-                      {%- assign push_image_count = push_image_count | plus: 1 -%}
-                    {%- endif -%}
+                      {%- if block.settings.push_2_image -%}
+                        {%- assign push_image_count = push_image_count | plus: 1 -%}
+                      {%- endif -%}
 
-                    {%- assign should_space_evenly = false -%}
+                      {%- assign should_space_evenly = false -%}
 
-                    {%- if push_image_count == 0 and link.links.size <= 3 -%}
-                      {%- assign should_space_evenly = true -%}
-                    {%- endif -%}
+                      {%- if push_image_count == 0 and link.links.size <= 3 -%}
+                        {%- assign should_space_evenly = true -%}
+                      {%- endif -%}
 
-                    {%- if push_image_count == 1 and link.links.size == 1 -%}
-                      {%- assign should_space_evenly = true -%}
-                    {%- endif -%}
+                      {%- if push_image_count == 1 and link.links.size == 1 -%}
+                        {%- assign should_space_evenly = true -%}
+                      {%- endif -%}
 
-                    {%- if push_image_count == 2 and link.links.size == 1 -%}
-                      {%- assign should_space_evenly = true -%}
-                    {%- endif -%}
+                      {%- if push_image_count == 2 and link.links.size == 1 -%}
+                        {%- assign should_space_evenly = true -%}
+                      {%- endif -%}
 
-                    <div class="MegaMenu {% if push_image_count != 0 and link.links.size == 0 %}MegaMenu--spacingCenter{% elsif should_space_evenly %}MegaMenu--spacingEvenly{% endif %} {% if push_image_count == 0 and link.links.size > 4 %}MegaMenu--grid{% endif %}" aria-hidden="true" {{ block.shopify_attributes }}>
-                      <div class="MegaMenu__Inner">
-                        {%- for sub_link in link.links -%}
-                          <div class="MegaMenu__Item MegaMenu__Item--fit">
-                            <a href="{{ sub_link.url }}" class="MegaMenu__Title Heading Text--subdued u-h7">{{ sub_link.title | title }}</a>
+                      <div class="MegaMenu {% if push_image_count != 0 and link.links.size == 0 %}MegaMenu--spacingCenter{% elsif should_space_evenly %}MegaMenu--spacingEvenly{% endif %} {% if push_image_count == 0 and link.links.size > 4 %}MegaMenu--grid{% endif %}" aria-hidden="true" {{ block.shopify_attributes }}>
+                        <div class="MegaMenu__Inner">
+                          {%- for sub_link in link.links -%}
+                            <div class="MegaMenu__Item MegaMenu__Item--fit">
+                              <a href="{{ sub_link.url }}" class="MegaMenu__Title Heading Text--subdued u-h7">{{ sub_link.title | title }}</a>
 
-                            {%- if sub_link.links != blank -%}
-                              <ul class="Linklist">
-                                {%- for sub_sub_link in sub_link.links -%}
-                                  <li class="Linklist__Item">
-                                    <a href="{{ sub_sub_link.url }}" class="Link Link--secondary">{{ sub_sub_link.title | escape }}</a>
-                                  </li>
-                                {%- endfor -%}
-                              </ul>
-                            {%- endif -%}
-                          </div>
-                        {%- endfor -%}
+                              {%- if sub_link.links != blank -%}
+                                <ul class="Linklist">
+                                  {%- for sub_sub_link in sub_link.links -%}
+                                    <li class="Linklist__Item">
+                                      <a href="{{ sub_sub_link.url }}" class="Link Link--secondary">{{ sub_sub_link.title | escape }}</a>
+                                    </li>
+                                  {%- endfor -%}
+                                </ul>
+                              {%- endif -%}
+                            </div>
+                          {%- endfor -%}
 
-                        {%- if push_image_count > 0 -%}
-                          <div class="MegaMenu__Item" style="{% if push_image_count == 1 %}width: 370px; min-width: 250px;{% else %}width: 660px; min-width: 425px;{% endif %}">
-                            {%- if block.settings.push_1_image -%}
-                              <div class="MegaMenu__Push {% if push_image_count == 2 %}MegaMenu__Push--shrink{% endif %}">
-                                {%- if block.settings.push_1_url != blank -%}
-                                  <a class="MegaMenu__PushLink" href="{{ block.settings.push_1_url }}">
-                                {%- endif -%}
+                          {%- if push_image_count > 0 -%}
+                            <div class="MegaMenu__Item" style="{% if push_image_count == 1 %}width: 370px; min-width: 250px;{% else %}width: 660px; min-width: 425px;{% endif %}">
+                              {%- if block.settings.push_1_image -%}
+                                <div class="MegaMenu__Push {% if push_image_count == 2 %}MegaMenu__Push--shrink{% endif %}">
+                                  {%- if block.settings.push_1_url != blank -%}
+                                    <a class="MegaMenu__PushLink" href="{{ block.settings.push_1_url }}">
+                                  {%- endif -%}
 
-                                {%- assign max_width = 370 | at_most: block.settings.push_1_image.width -%}
+                                  {% if block.settings.limited_edition1 %}
+                                    <div class="collection_item_badge">
+                                      LIMITED EDITION
+                                    </div>
+                                  {% endif %}
 
-                                <div class="MegaMenu__PushImageWrapper AspectRatio" style="background: url({{ block.settings.push_1_image | img_url: '1x1', format: 'jpg' }}); max-width: {{ max_width }}px; --aspect-ratio: {{ block.settings.push_1_image.aspect_ratio }}">
-                                  <img class="Image--lazyLoad Image--fadeIn"
-                                       data-src="{{ block.settings.push_1_image | img_url: '370x230', scale: 2 }}"
-                                       alt="{{ block.settings.push_1_image.alt | escape }}">
+                                  {%- assign max_width = 370 | at_most: block.settings.push_1_image.width -%}
 
-                                  <span class="Image__Loader"></span>
+                                  <div class="MegaMenu__PushImageWrapper AspectRatio" style="background: url({{ block.settings.push_1_image | img_url: '1x1', format: 'jpg' }}); max-width: {{ max_width }}px; --aspect-ratio: {{ block.settings.push_1_image.aspect_ratio }}">
+                                    <img class="Image--lazyLoad Image--fadeIn"
+                                        data-src="{{ block.settings.push_1_image | img_url: '370x230', scale: 2 }}"
+                                        alt="{{ block.settings.push_1_image.alt | escape }}">
+
+                                    <span class="Image__Loader"></span>
+                                  </div>
+
+                                  {%- if block.settings.push_1_heading != blank -%}
+                                    <p class="MegaMenu__PushHeading Heading u-h6">{{ block.settings.push_1_heading | escape }}</p>
+                                  {%- endif -%}
+
+                                  {%- if block.settings.push_1_subheading != blank -%}
+                                    <p class="MegaMenu__PushSubHeading Heading Text--subdued u-h7">{{ block.settings.push_1_subheading | escape }}</p>
+                                  {%- endif -%}
+
+                                  {%- if block.settings.push_1_url != blank -%}
+                                    </a>
+                                  {%- endif -%}
                                 </div>
+                              {%- endif -%}
 
-                                {%- if block.settings.push_1_heading != blank -%}
-                                  <p class="MegaMenu__PushHeading Heading u-h6">{{ block.settings.push_1_heading | escape }}</p>
-                                {%- endif -%}
+                              {%- if block.settings.push_2_image -%}
+                                <div class="MegaMenu__Push {% if push_image_count == 2 %}MegaMenu__Push--shrink{% endif %}">
+                                  {% if block.settings.limited_edition2 %}
+                                    <div class="collection_item_badge">
+                                      LIMITED EDITION
+                                    </div>
+                                  {% endif %}
+                                  {%- if block.settings.push_2_url != blank -%}
+                                    <a class="MegaMenu__PushLink" href="{{ block.settings.push_2_url }}">
+                                  {%- endif -%}
 
-                                {%- if block.settings.push_1_subheading != blank -%}
-                                  <p class="MegaMenu__PushSubHeading Heading Text--subdued u-h7">{{ block.settings.push_1_subheading | escape }}</p>
-                                {%- endif -%}
+                                  {%- assign max_width = 370 | at_most: block.settings.push_2_image.width -%}
 
-                                {%- if block.settings.push_1_url != blank -%}
-                                  </a>
-                                {%- endif -%}
-                              </div>
-                            {%- endif -%}
+                                  <div class="MegaMenu__PushImageWrapper AspectRatio" style="background: url({{ block.settings.push_2_image | img_url: '1x1', format: 'jpg' }}); max-width: {{ max_width }}px; --aspect-ratio: {{ block.settings.push_2_image.aspect_ratio }}">
+                                    <img class="Image--lazyLoad Image--fadeIn"
+                                        data-src="{{ block.settings.push_2_image | img_url: '370x230', scale: 2 }}"
+                                        alt="{{ block.settings.push_2_image.alt | escape }}">
 
-                            {%- if block.settings.push_2_image -%}
-                              <div class="MegaMenu__Push {% if push_image_count == 2 %}MegaMenu__Push--shrink{% endif %}">
-                                {%- if block.settings.push_2_url != blank -%}
-                                  <a class="MegaMenu__PushLink" href="{{ block.settings.push_2_url }}">
-                                {%- endif -%}
+                                    <span class="Image__Loader"></span>
+                                  </div>
 
-                                {%- assign max_width = 370 | at_most: block.settings.push_2_image.width -%}
+                                  {%- if block.settings.push_2_heading != blank -%}
+                                    <p class="MegaMenu__PushHeading Heading u-h6">{{ block.settings.push_2_heading | escape }}</p>
+                                  {%- endif -%}
 
-                                <div class="MegaMenu__PushImageWrapper AspectRatio" style="background: url({{ block.settings.push_2_image | img_url: '1x1', format: 'jpg' }}); max-width: {{ max_width }}px; --aspect-ratio: {{ block.settings.push_2_image.aspect_ratio }}">
-                                  <img class="Image--lazyLoad Image--fadeIn"
-                                       data-src="{{ block.settings.push_2_image | img_url: '370x230', scale: 2 }}"
-                                       alt="{{ block.settings.push_2_image.alt | escape }}">
+                                  {%- if block.settings.push_2_subheading != blank -%}
+                                    <p class="MegaMenu__PushSubHeading Heading Text--subdued u-h7">{{ block.settings.push_2_subheading | escape }}</p>
+                                  {%- endif -%}
 
-                                  <span class="Image__Loader"></span>
+                                  {%- if block.settings.push_2_url != blank -%}
+                                    </a>
+                                  {%- endif -%}
                                 </div>
-
-                                {%- if block.settings.push_2_heading != blank -%}
-                                  <p class="MegaMenu__PushHeading Heading u-h6">{{ block.settings.push_2_heading | escape }}</p>
-                                {%- endif -%}
-
-                                {%- if block.settings.push_2_subheading != blank -%}
-                                  <p class="MegaMenu__PushSubHeading Heading Text--subdued u-h7">{{ block.settings.push_2_subheading | escape }}</p>
-                                {%- endif -%}
-
-                                {%- if block.settings.push_2_url != blank -%}
-                                  </a>
-                                {%- endif -%}
-                              </div>
-                            {%- endif -%}
-                          </div>
-                        {%- endif -%}
+                              {%- endif -%}
+                            </div>
+                          {%- endif -%}
+                        </div>
                       </div>
-                    </div>
+                      {% else %}
+                        {%- assign downcased_mega_menu_name_1 = block.settings.navigation_mega_menu | downcase -%}
+                    
+                        {%- if downcased_mega_menu_name_1 != downcased_link_title -%}
+                          {%- continue -%}
+                        {%- endif -%}
+                    
+                        {%- assign use_mega_menu = true -%}
+                        <div class="MegaMenu megamenu_two"  aria-hidden="true" {{ block.shopify_attributes }}>
+                          <div class="MegaMenu__Inner">
+                            <div class="megamenu_header">
+                              {% if block.settings.text != blank %}
+                             
+                                <a href="{{ block.settings.url }}" class="link-button" style='background-image: url("{{ block.settings.bg_image | img_url : '' }}")'>
+                                  {{ block.settings.text }}
+                                </a>
+                              {% endif %}
+                              {% if block.settings.text_2 != blank %}
+                                <a href="{{ block.settings.url }}" class="link-button" style='background-image: url("{{ block.settings.bg_image_2 | img_url : '' }}")'>
+                                  {{ block.settings.text_2 }}
+                                </a>
+                              {% endif %}
+                            </div>
+                            <div class="product-wrap">
+                              {%- render 'product-item', product: block.settings.product_1, show_product_info: true -%}
+                              {%- render 'product-item', product: block.settings.product_2, show_product_info: true -%}
+                              {%- render 'product-item', product: block.settings.product_3, show_product_info: true -%}
+                              {%- render 'product-item', product: block.settings.product_4, show_product_info: true -%}
+                            </div>
+                          </div>
+                        </div>
+                    {% endif %}
                   {%- endfor -%}
                 {%- elsif link.links != blank -%}
                   <div class="DropdownMenu" aria-hidden="true">
@@ -459,7 +503,7 @@ HEADER CONTENT
         <span class="Header__CartDot {% if cart.item_count > 0 %}is-visible{% endif %}"></span>
       </a>
       {%- if shop.customer_accounts_enabled -%}
-        <a href="{{ routes.account_url }}" class="Heading Link Link--primary hidden-tablet-and-up header-account-link__mobile Text--subdued u-h8">
+        <a href="{{ routes.account_url }}" class="Heading Link Link--primary  header-account-link__mobile hidden-tablet-and-up Text--subdued u-h8" style="display:flex">
           {% render 'icon' with 'account' %}
         </a>
       {%- endif -%}
@@ -673,7 +717,7 @@ HEADER CONTENT
   "blocks": [
     {
       "type": "mega_menu",
-      "name": "Mega menu",
+      "name": "Mega menu (first type)",
       "settings": [
         {
           "type": "text",
@@ -684,6 +728,12 @@ HEADER CONTENT
         {
           "type": "header",
           "content": "Image push 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "limited_edition1",
+          "label": "Limited Edition",
+          "default": false
         },
         {
           "type": "image_picker",
@@ -713,6 +763,12 @@ HEADER CONTENT
           "content": "Image push 2"
         },
         {
+          "type": "checkbox",
+          "id": "limited_edition2",
+          "label": "Limited Edition",
+          "default": false
+        },
+        {
           "type": "image_picker",
           "id": "push_2_image",
           "label": "Image",
@@ -734,6 +790,76 @@ HEADER CONTENT
           "type": "url",
           "id": "push_2_url",
           "label": "Link"
+        }
+      ]
+    },{
+      "type": "mega_menu_1",
+      "name": "Mega menu (Second type)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "navigation_mega_menu",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu dropdown. [Learn more](http://support.maestrooo.com/article/149-navigation-enabling-and-configuring-mega-menu)."
+        },
+        {
+          "type": "header",
+          "content":"Button 1"
+        },
+        {
+          "type": "image_picker",
+          "id" :"bg_image",
+          "label": "Button background ground image"
+        },
+        {
+          "type": "url",
+          "id" :"url",
+          "label": "URL_1"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "TEXT 1",
+          "default": "Shop Performance Shirts"
+        }, {
+          "type": "header",
+          "content":"Button 2"
+        },
+        {
+          "type": "image_picker",
+          "id" :"bg_image_2",
+          "label": "Button background ground image"
+        },
+        {
+          "type": "url",
+          "id" :"url_2",
+          "label": "URL 1"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "TEXT 2",
+          "default": "Shop Performance Shorts"
+        }, {
+          "type": "product",
+          "id": "product_1",
+          "label": "Product 1"
+        }, {
+          "type": "product",
+          "id": "product_2",
+          "label": "Product 2"
+        }, {
+          "type": "product",
+          "id": "product_3",
+          "label": "Product 3"
+        }, {
+          "type": "product",
+          "id": "product_4",
+          "label": "Product 4"
+        }, {
+          "type": "product",
+          "id": "product_5",
+          "label": "Product 5"
         }
       ]
     }

@@ -1,0 +1,59 @@
+<style>
+    .patterns-that-slap--{{ section.id }}{
+        background-color:black;
+        padding: 80px 0;
+    }
+    @media (max-width: 1000px) {
+        .patterns-that-slap--{{ section.id }}{
+            padding: 20px 0;
+        }
+    }
+</style>
+<div class="patterns-that-slap--{{ section.id }}">
+    <div class="page-width">
+        <div class="patterns-that-slap ">
+            <div class="image-with-content">
+                <h1 class="title">{{ section.settings.title }} </h1>
+                <img src="{{ section.settings.image | img_url : "2000x" }}" width="" height="" loading="lazy" alt="{{ section.settings.image.alt | escape }}"/>
+            </div>
+            <div class="content-wrap">
+                <div class="description"> {{ section.settings.text }}</div>
+                <img src="{{ section.settings.content_image | img_url : "2000x" }}" width="" height="" loading="lazy" alt="{{ section.settings.image.alt | escape }}"/>
+            </div>
+        </div>
+    </div>    
+</div>
+
+{% schema %}
+    {
+        "name":"PATTERNS THAT SLAP",
+        "settings": [
+            {
+                "type":"image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id":"title",
+                "label": "Title Text",
+                "default": "PATTERNS THAT SLAP"
+            },
+            {
+                "type": "image_picker",
+                "id":"content_image",
+                "label": "Content Image"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "description"
+            }
+        ],
+        "presets": [
+            {
+                "name" : "PATTERNS THAT SLAP"
+            }
+        ]
+    }
+{% endschema %}

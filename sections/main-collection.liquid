@@ -129,43 +129,53 @@
 
     {%- capture collection_toolbar -%}
       {%- if show_filters or section.settings.show_sort_by or section.settings.show_layout_switch -%}
-        <div class="CollectionToolbar CollectionToolbar--{{ section.settings.toolbar_position }} {% unless section.settings.show_layout_switch and show_filters == false and section.settings.show_sort_by == false %}CollectionToolbar--reverse{% endunless %}">
-          {%- if show_filters or section.settings.show_sort_by -%}
-            <div class="CollectionToolbar__Group">
-              {%- if show_filters -%}
-                <button class="CollectionToolbar__Item CollectionToolbar__Item--filter Heading {% if active_filters_count == 0 %}Text--subdued{% endif %} u-h6 {% if section.settings.filter_position != 'drawer' %}hidden-lap-and-up{% endif %}"
-                        data-action="open-drawer"
-                        data-drawer-id="collection-filter-drawer"
-                        aria-label="{{ 'collection.filter.show_filter' | t }}">
-                  {{ 'collection.filter.title' | t }} {% if active_filters_count > 0 %}<span class="Text--subdued">({{ active_filters_count }})</span>{% endif %}
-                </button>
-              {%- endif -%}
+        <div class="CollectionToolbar-header">
+          <div class="CollectionToolbar__FromToLabel">
+            Displaying 1 of 12 of 28 items 
+          </div>
+          <div class="CollectionToolbar CollectionToolbar--{{ section.settings.toolbar_position }} {% unless section.settings.show_layout_switch and show_filters == false and section.settings.show_sort_by == false %}CollectionToolbar--reverse{% endunless %}">
+            {%- if show_filters or section.settings.show_sort_by -%}
+              <div class="CollectionToolbar__Group">
+                {%- if show_filters -%}
+                  <button class="CollectionToolbar__Item CollectionToolbar__Item--filter  {% if active_filters_count == 0 %}Text--subdued{% endif %} {% if section.settings.filter_position != 'drawer' %}hidden-lap-and-up{% endif %}"
+                          data-action="open-drawer"
+                          data-drawer-id="collection-filter-drawer"
+                          aria-label="{{ 'collection.filter.show_filter' | t }}">
+                    {{ 'collection.filter.title' | t }} {% if active_filters_count > 0 %}<span class="Text--subdued">{{ active_filters_count }}</span>{% endif %}
+                  </button>
+                {%- endif -%}
 
-              {%- if section.settings.show_sort_by -%}
-                <button class="CollectionToolbar__Item CollectionToolbar__Item--sort Heading Text--subdued u-h6"
-                        aria-label="{{ 'collection.sorting.show_sort' | t }}"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        aria-controls="collection-sort-popover">
-                  {{ 'collection.sorting.title' | t }} {% render 'icon' with 'select-arrow' %}
-                </button>
-              {%- endif -%}
-            </div>
-          {%- endif -%}
-
-          {%- if section.settings.show_layout_switch -%}
-            <div class="CollectionToolbar__Item CollectionToolbar__Item--layout">
-              <div class="CollectionToolbar__LayoutSwitch hidden-tablet-and-up">
-                <button aria-label="{{ 'collection.layout.show_one_per_row' | t }}" class="CollectionToolbar__LayoutType {% if mobile_items_per_row == 1 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="mobile" data-count="1">{% render 'icon' with 'wall-1' %}</button>
-                <button aria-label="{{ 'collection.layout.show_two_per_row' | t }}" class="CollectionToolbar__LayoutType {% if mobile_items_per_row == 2 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="mobile" data-count="2">{% render 'icon' with 'wall-2' %}</button>
+                {%- if section.settings.show_sort_by -%}
+                  <button class="CollectionToolbar__Item CollectionToolbar__Item--sort  Text--subdued"
+                          aria-label="{{ 'collection.sorting.show_sort' | t }}"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          aria-controls="collection-sort-popover">
+                    {{ 'collection.sorting.title' | t }} {% render 'icon' with 'select-arrow' %}
+                  </button>
+                {%- endif -%}
               </div>
+            {%- endif -%}
 
-              <div class="CollectionToolbar__LayoutSwitch hidden-phone">
-                <button aria-label="{{ 'collection.layout.show_two_per_row' | t }}" class="CollectionToolbar__LayoutType {% if desktop_items_per_row == 2 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="desktop" data-count="2">{% render 'icon' with 'wall-2' %}</button>
-                <button aria-label="{{ 'collection.layout.show_four_per_row' | t }}" class="CollectionToolbar__LayoutType {% if desktop_items_per_row >= 3 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="desktop" data-count="{{ section.settings.grid_desktop_items_per_row }}">{% render 'icon' with 'wall-4' %}</button>
+            {%- if section.settings.show_layout_switch -%}
+              <div class="CollectionToolbar__Item CollectionToolbar__Item--layout">
+                <span>
+                  View as : &nbsp;
+                </span>
+                <div class="CollectionToolbar__LayoutSwitch hidden-tablet-and-up">
+                  <button aria-label="{{ 'collection.layout.show_one_per_row' | t }}" class="CollectionToolbar__LayoutType {% if mobile_items_per_row == 1 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="mobile" data-count="1">{% render 'icon' with 'wall-1' %}</button>
+                  <button aria-label="{{ 'collection.layout.show_two_per_row' | t }}" class="CollectionToolbar__LayoutType {% if mobile_items_per_row == 2 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="mobile" data-count="2">{% render 'icon' with 'wall-2' %}</button>
+                </div>
+
+                <div class="CollectionToolbar__LayoutSwitch hidden-phone">
+                  <button aria-label="{{ 'collection.layout.show_two_per_row' | t }}" class="CollectionToolbar__LayoutType {% if desktop_items_per_row == 2 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="desktop" data-count="2">{% render 'icon' with 'wall-2' %}</button>
+                  <button aria-label="{{ 'collection.layout.show_four_per_row' | t }}" class="CollectionToolbar__LayoutType {% if desktop_items_per_row >= 3 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="desktop" data-count="{{ section.settings.grid_desktop_items_per_row }}">{% render 'icon' with 'wall-4' %}</button>
+                </div>
               </div>
-            </div>
-          {%- endif -%}
+            {%- endif -%}
+             
+          </div>
+         
         </div>
       {%- endif -%}
     {%- endcapture -%}
@@ -187,7 +197,7 @@
       {%- capture filters_content -%}
         {%- if quick_links != empty -%}
           <div class="Collapsible Collapsible--padded {% if section.settings.expand_filters %}Collapsible--autoExpand{% endif %}" data-filter-index="{% increment filter_index %}">
-            <button type="button" class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+            <button type="button" class="Collapsible__Button Heading" data-action="toggle-collapsible" aria-expanded="false">
               {{- quick_links.title | escape -}} <span class="Collapsible__Plus"></span>
             </button>
 
@@ -214,11 +224,11 @@
             <div class="Collapsible Collapsible--padded {% if section.settings.expand_filters %}Collapsible--autoExpand{% endif %}" data-filter-index="{% increment filter_index %}">
               {%- if filter.type == 'boolean' -%}
                 <div class="Collapsible__Button BooleanFilter">
-                  <label for="{{ filter.param_name }}" class="Heading u-h6">{{- filter.label -}}</label>
+                  <label for="{{ filter.param_name }}" class="Heading">{{- filter.label -}}</label>
                   <input id="{{ filter.param_name }}" type="checkbox" class="switch-checkbox" name="{{ filter.param_name }}" value="1" {% if filter.true_value.active %}checked{% endif %}>
                 </div>
               {%- else -%}
-                <button type="button" class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+                <button type="button" class="Collapsible__Button Heading" data-action="toggle-collapsible" aria-expanded="false">
                   {{- filter.label -}} <span class="Collapsible__Plus"></span>
                 </button>
               {%- endif -%}
@@ -300,7 +310,7 @@
           <span class="Drawer__Title Heading u-h4">{{ 'collection.filter.all' | t }}</span>
 
           <button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="collection-filter-drawer" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
-            {%- render 'icon' with 'close' -%}
+            {%- render 'icon' with 'collection-filter-popup-close' -%}
           </button>
         </header>
 
@@ -308,23 +318,25 @@
           <div class="Drawer__Main" data-scrollable>
             <form id="collection-filters-drawer-form" class="collection-filters-form">
               {{ filters_content | replace: '@@@@', 'drawer' }}
+              <div class="ButtonGroup">
+                <button type="button" class="ButtonGroup__item button-reset-filter" data-action="clear-filters" >Reset Filter</button>
+                <button type="button" class="ButtonGroup__Item ButtonGroup__Item--expand Button Button--primary" data-drawer-id="collection-filter-drawer" data-filter-see-result>{{ 'collection.filter.apply' | t }}</button>
+              </div>
             </form>
           </div>
-
+{% comment %} 
           <div class="Drawer__Footer Drawer__Footer--padded" data-drawer-animated-bottom>
-            <div class="ButtonGroup">
-              <button type="button" class="ButtonGroup__Item ButtonGroup__Item--expand Button Button--primary" data-action="close-drawer" data-drawer-id="collection-filter-drawer">{{ 'collection.filter.apply' | t }}</button>
-            </div>
-          </div>
+           
+          </div> {% endcomment %}
         </div>
       </div>
     {%- endif -%}
 
     {%- if section.settings.show_sort_by -%}
-      <div id="collection-sort-popover" class="Popover" aria-hidden="true">
+      <div id="collection-sort-popover" class="Popover collection-sort-popup" aria-hidden="true">
         <header class="Popover__Header">
-          <button class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover" aria-label="{{ 'general.popup.close' | t }}">{% render 'icon' with 'close' %}</button>
           <span class="Popover__Title Heading u-h4">{{ 'collection.sorting.title' | t }}</span>
+          <button class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover" aria-label="{{ 'general.popup.close' | t }}">{% render 'icon' with 'collection-filter-popup-close' %}</button>
         </header>
 
         <div class="Popover__Content">
@@ -332,7 +344,8 @@
             {% assign collection_sort_by = collection.sort_by | default: collection.default_sort_by %}
 
             {%- for option in collection.sort_options -%}
-              <button class="Popover__Value {% if option.value == collection_sort_by %}is-selected{% endif %} Heading Link Link--primary u-h6" data-value="{{ option.value }}" data-action="select-value">
+              <button class="Popover__Value {% if option.value == collection_sort_by %}is-selected{% endif %} Heading Link Link--primary" data-value="{{ option.value }}" data-action="select-value">
+                {% render 'icon' with 'filter-active' %}
                 {{ option.name }}
               </button>
             {%- endfor -%}

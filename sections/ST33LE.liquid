@@ -1,0 +1,36 @@
+<style>
+    .ST33LE--{{ section.id }}{
+        background-color: black;
+    }
+</style>
+
+<div class="ST33LE--{{ section.id }}">
+    <div class="ST33LE-section">
+        <div class="description">
+            {{ section.settings.text }}
+        </div>
+        <img class="icon" src="{{ section.settings.icon | img_url : "500x" }}" width="" heigh="" loading="lazy" alt="" />
+    </div>
+
+</div>
+{% schema %}
+    {
+        "name": "ST33LE",
+        "settings":[
+            {
+                "type": "richtext",
+                "id" :"text",
+                "label":"Text"
+            },{
+                "type": "image_picker",
+                "id": "icon",
+                "label":"Icon"
+            }
+        ],
+        "presets": [
+            {
+                "name":"ST33LE"
+            }
+        ]
+    }
+{% endschema %}

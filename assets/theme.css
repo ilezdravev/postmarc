@@ -1135,7 +1135,7 @@ body {
 }
 
 .Heading {
-  font-family: var(--heading-font-family);
+  font-family: 'Very Vogue Display';
   font-weight: var(--heading-font-weight);
   font-style: var(--heading-font-style);
   color: var(--heading-color);
@@ -2283,8 +2283,8 @@ body:not(.is-tabbing) .flickity-enabled:focus {
 
 @media screen and (min-width: 1008px) {
   .Collapsible--padded {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 27px;
+    padding-right: 29px;
   }
 
   .Collapsible--large .Collapsible__Button {
@@ -2408,8 +2408,8 @@ body:not(.is-tabbing) .flickity-enabled:focus {
 }
 
 .Drawer__Close svg {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   stroke-width: 1.25px;
 }
 
@@ -2419,7 +2419,6 @@ body:not(.is-tabbing) .flickity-enabled:focus {
 }
 
 .Drawer__Header--bordered {
-  box-shadow: 0 -1px var(--border-color) inset;
 }
 
 .Drawer--secondary .Drawer__Header--bordered {
@@ -5186,7 +5185,6 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 .Pagination__NavItem {
   display: inline-block;
   padding: 16px 20px;
-  border-bottom: 1px solid var(--border-color);
 }
 .Pagination__NavItem svg {
   width: 6px;
@@ -5195,9 +5193,9 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 }
 
 .Pagination__NavItem.is-active {
-  color: var(--text-color);
-  border-bottom-color: var(--text-color);
-  box-shadow: 0 -2px var(--text-color) inset;
+  color: black;
+  border-bottom-color: #DB0632;
+  box-shadow: 0 -2px #DB0632 inset;
 }
 
 @media screen and (min-width: 641px) {
@@ -5306,7 +5304,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
 .Popover__ValueList {
   list-style: none;
-  max-height: 385px;
+  max-height: calc(100vh - 185px);
   padding: 18px 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -5327,7 +5325,6 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 }
 
 .Popover__Value:focus {
-  background: var(--background);
   outline: none;
 }
 
@@ -5344,7 +5341,6 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
 @supports (padding: max(0px)) {
   .Popover__ValueList {
-    max-height: calc(385px + env(safe-area-inset-bottom, 0px));
     padding-bottom: max(18px, env(safe-area-inset-bottom, 0px) + 18px);
   }
 }
@@ -5377,6 +5373,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
   .Popover--positionBottom::before {
     bottom: 100%;
+    content: unset;
     border-width: 0 10px 10px 10px;
     border-color: transparent transparent var(--light-background) transparent;
     filter: drop-shadow(0 -2px 2px rgba(54, 54, 54, 0.2));
@@ -5419,7 +5416,6 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   }
 
   .Popover__Header {
-    display: none;
   }
 
   .Popover__Value {
@@ -5638,6 +5634,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 .SectionHeader__SubHeading + .SectionHeader__TabList,
 .SectionHeader__Description {
   margin-top: 16px;
+  font-family: 'Very Vogue Display';
 }
 
 .SectionHeader__Description {
@@ -6419,6 +6416,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 }
 
 .Cart__ShippingNotice {
+  
   position: sticky;
   top: 0;
   margin-bottom: 0;
@@ -6428,7 +6426,6 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   border-bottom: 1px solid var(--border-color);
   line-height: normal;
   z-index: 1;
-  background: var(--background);
 }
 
 .Cart__Empty {
@@ -11406,13 +11403,12 @@ shopify-payment-terms {
   font-family: var(--text-font-family);
 }
 
-.shopify-section--slideshow  .Heading {
-  font-size: 128px !important;
+.shopify-section--slideshow .Heading {
+  font-size: 128px;
+  line-height: 0.8;
   letter-spacing: -0.02em;
-  line-height: 0.79;
-  max-width: 520px;
-  text-transform: capitalize;
   margin-bottom: 40px;
+  max-width: 460px;
 }
 
 .Button {
@@ -11424,11 +11420,11 @@ shopify-payment-terms {
   font-family: var(--text-font-family);
 }
 
-.SectionHeader  .featured-collection-heading {
+.SectionHeader .featured-collection-heading {
   font-size: 64px;
+  line-height: 1.4;
   letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 0;
+  margin-bottom: 16px;
 }
 
 .featured-collection-tabitem {
@@ -11527,7 +11523,9 @@ shopify-payment-terms {
   width: 22px;
   height: 22px;
 }
-
+.featured-collections .AspectRatio--withFallback{
+  --aspect-ratio: 1 !important;
+}
 .featured-collections .Button {
   color: #231F20;
 }
@@ -11589,10 +11587,11 @@ shopify-payment-terms {
   margin-bottom: 24px;
   font-size: 49px;
   line-height: 57px;
-  font-family: var(--heading-font-family);
+  font-family: 'Very Vogue Display';
 }
 
 .icon-with-text-item .subtitle {
+  font-family: 'Work Sans';
   max-width: 460px;
   margin: auto;
   font-size: 28px;
@@ -11658,10 +11657,13 @@ shopify-payment-terms {
   transform: translateY(-50%);
   padding: 5px 18px;
   margin-top: 0;
-  background: #DB0632;
+  background-color: #DB0632;
   border: #DB0632;
 }
-
+.Footer__Newsletter .Button:hover{
+  background-color: #DB0632 !important ;
+  border: #DB0632 !important;
+}
 .Footer__Newsletter .Button::before {
   content: none;
 }
@@ -11755,7 +11757,9 @@ shopify-payment-terms {
   margin: auto;
   background-color: linear-gradient(180deg, #F8F8F8 0%, rgba(248, 248, 248, 0) 100%);
 }
-
+.title{
+  font-family: 'Very Vogue Display';
+}
 @media (max-width: 1024px) {
   .icon-with-text-item {
     padding: 48px 40px;
@@ -11880,7 +11884,8 @@ shopify-payment-terms {
 }
 
 #sidebar-menu .Collapsible__Button {
-  font-size: 32px;
+  font-size: 26px;
+  line-height:1 ;
 }
 #sidebar-menu .Collapsible__Inner .Collapsible__Button{
   font-size: 18px;

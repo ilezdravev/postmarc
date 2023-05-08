@@ -13,7 +13,7 @@
   {%- capture collection_items -%}
     {%- for block in section.blocks -%}
       {%- assign collection = collections[block.settings.collection] -%}
-      {%- render 'collection-item', block: block, collection: collection, apply_overlay: block.settings.apply_overlay, is_large: block.settings.large -%}
+      {%- render 'collection-item', block: block, collection: collection, apply_overlay: block.settings.apply_overlay, is_large: block.settings.large, is_limited: block.settings.limited_edition, is_limited_invert: block.settings.limited_edition_invert -%}
     {%- endfor -%}
   {%- endcapture -%}
 
@@ -117,6 +117,18 @@
           "type": "checkbox",
           "id": "large",
           "label": "Large",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "limited_edition",
+          "label": "Limited Edition",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "limited_edition_invert",
+          "label": "Limited Edition Color Invert",
           "default": false
         },
         {

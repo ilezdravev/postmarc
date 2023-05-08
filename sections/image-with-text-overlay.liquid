@@ -25,6 +25,10 @@
         <div class="ImageHero__ContentOverlay">
           {%- if section.settings.subheading != blank or section.settings.title != blank or section.settings.content != blank -%}
             <header class="SectionHeader">
+
+              <div class="logo-image">
+                <img src="{{ section.settings.logo_image | img_url: '1000x' }}" alt="Logo Image">
+              </div>
               {%- if section.settings.subheading != blank -%}
                 <h3 class="SectionHeader__SubHeading Heading u-h6">{{ section.settings.subheading | escape }}</h3>
               {%- endif -%}
@@ -87,6 +91,11 @@
       "id": "image",
       "label": "Image",
       "info": "1500 x 800px .jpg recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
     },
     {
       "type": "color",

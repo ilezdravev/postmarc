@@ -4,6 +4,12 @@
   {%- capture mobile_size -%}750x{% if collection_image.height >= 960 %}960{% else %}{{ collection_image.height }}{% endif %}{%- endcapture -%}
   {%- assign image_crop = block.settings.image_alignment | split: ' ' | last -%}
 
+  {% if is_limited %}
+    <div class="collection_item_badge {% if is_limited_invert %}invert{% endif %}">
+      LIMITED EDITION
+    </div>
+  {% endif %}
+
   <div class="CollectionItem__Wrapper CollectionItem__Wrapper--{{ section.settings.image_size }}" {% if collection_image %}style="background-image: url({{ collection_image | img_url: '1x1' }})"{% endif %}>
     <div class="CollectionItem__ImageWrapper">
       <div class="CollectionItem__Image {% if apply_overlay %}Image--contrast{% endif %} Image--lazyLoad Image--zoomOut hide-no-js"

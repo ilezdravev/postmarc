@@ -113,6 +113,8 @@
 
               {%- if section.settings.show_layout_switch -%}
                 <div class="CollectionToolbar__Item CollectionToolbar__Item--layout">
+                
+                  
                   <div class="CollectionToolbar__LayoutSwitch hidden-tablet-and-up">
                     <button aria-label="{{ 'collection.layout.show_one_per_row' | t }}" class="CollectionToolbar__LayoutType {% if mobile_items_per_row == 1 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="mobile" data-count="1">{% render 'icon' with 'wall-1' %}</button>
                     <button aria-label="{{ 'collection.layout.show_two_per_row' | t }}" class="CollectionToolbar__LayoutType {% if mobile_items_per_row == 2 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="mobile" data-count="2">{% render 'icon' with 'wall-2' %}</button>
@@ -190,7 +192,7 @@
                       <ul class="{% if section.settings.show_filter_color_swatch and color_label contains downcase_filter_label %}ColorSwatchList HorizontalList HorizontalList--spacingTight{% else %}Linklist{% endif %}">
                         {%- if section.settings.show_filter_color_swatch and color_label contains downcase_filter_label -%}
                           {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
-
+                         
                           {%- for filter_value in filter.values -%}
                             <li class="HorizontalList__Item">
                               {%- capture filter_value_id -%}@@@@-{{ filter_value.param_name | append: filter_value.value | handle }}{%- endcapture -%}

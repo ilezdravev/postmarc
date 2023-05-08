@@ -1,0 +1,48 @@
+<style>
+    .overtitle-with-content{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+</style>
+
+<section>
+    <div class="overtitle-with-content">
+       <img src="{{ section.settings.image | img_url : "2000x" }}" width height alt="" loading="lazy" /> 
+       <div class="title-wrap">
+            <img class="over-image" src="{{ section.settings.over_img | img_url: "400x" }}" width height loading="lazy" alt="" />
+            <h2 class="title">
+                {{ section.settings.title }}
+            </h2>
+       </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Overtitle with content",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1500 x 800px .jpg recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "over_img",
+      "label": "Over title image"
+    },{
+        "type": "text",
+        "id" : "title",
+        "label": "Title"
+    }
+  ],
+  "presets": [
+    {
+        "name":"Overtitle with content"
+    }
+  ]
+}
+{% endschema %}

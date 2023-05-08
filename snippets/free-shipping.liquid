@@ -1,0 +1,35 @@
+
+{%- assign threshold_in_cents = settings.cart_free_shipping_threshold | times: 100 -%}
+
+<div class="Cart__ShippingNotice Text--subdued">
+    <div class="freeshipping-wrap">
+        {%- if cart.total_price < threshold_in_cents -%}
+            {% assign percent =  cart.total_price| times: 1.0 | divided_by : threshold_in_cents | times : 100 %}
+            <div class="percent-wrap">
+                <div class="progress">
+                    <p class="percent">{{ percent }}%</p>
+                    <div class="bar" style="width:{{ percent }}%">
+                    </div>
+                </div>
+                <p class="threshold">{{ threshold_in_cents | money }}</p>
+            </div>
+            <p class="notify-wrap">
+                {%- capture remaining_amount -%}<span>{{ cart.total_price | minus: threshold_in_cents | abs | money }}</span>{%- endcapture -%}
+                Add more to your order more for free shipping. {{ remaining_amount }} left
+            </p>
+            {% else %}
+            <div class="percent-wrap">
+                <div class="progress">
+                    <p class="percent">100%</p>
+                    <div class="bar" style="width:100%">
+                       
+                    </div>
+                </div>
+                <p class="threshold">{{ threshold_in_cents | money }}</p>
+            </div>
+            <p class="notify-wrap">
+               You get a freeshipping
+            </p>
+        {%- endif -%}
+    </div>
+</div>

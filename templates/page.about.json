@@ -1,0 +1,68 @@
+{
+  "sections": {
+    "3d9d16b7-91b2-4770-a4d4-5ef1fa06461d": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "section_size": "large",
+        "image": "shopify:\/\/shop_images\/Group_4009.png",
+        "logo_image": "shopify:\/\/shop_images\/St33le_logo_large_99c761f8-ec9b-499e-969e-c7154f8b5b0b.png",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "subheading": "",
+        "title": "Activewear & swimwear for men.",
+        "content": ""
+      }
+    },
+    "4a27733f-4239-43f5-952f-8b5c4ee67b12": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/KNIT_SHIRTS_1.png",
+        "title": "PERFORMANCE STRENGTH COMFORT STYLE",
+        "bg_image": "shopify:\/\/shop_images\/Rectangle_Copy_3.png",
+        "text": "ST33LE is a premium sportswear and swimwear specialty niche brand designed especially for the fashion forward athletic male who craves for innovative styling, unparalleled comfort, and high-quality craftsmanship."
+      }
+    },
+    "bc437da7-16f4-41fc-b2ac-9fbf9eb0100b": {
+      "type": "patterns-that-slap",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/DSC_8596_5417bb73-3694-42f3-8511-902a78c7ca39.png",
+        "title": "PATTERNS THAT SLAP",
+        "content_image": "shopify:\/\/shop_images\/O__1_1.png",
+        "text": "<p>ST33LE is a premium sportswear and swimwear specialty niche brand designed especially for the fashion forward athletic male who craves for innovative styling, unparalleled comfort, and high-quality craftsmanship.<\/p><p><\/p><p>Not your traditional sportswear and swimwear brand, ST33LE offers unique fabrications, bright colors, fun prints, and bold patterns that set it apart from other brands. Each item is meticulously designed with a keen focus on fit and function, fusing positively conscious fabrics with out-of-the-box styling.<\/p>"
+      }
+    },
+    "f9a0dcbe-90cb-45c9-962b-c1290d49cb66": {
+      "type": "performance-that-slap",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/DSC_1635_c0c943ba-521f-4988-a6f8-abb50760c799.png",
+        "title": "PERFORMANCE THAT PIQUES",
+        "content_image": "shopify:\/\/shop_images\/Group_4_c2c9dfb2-f5ba-4371-b419-6612dd6f74e0.png",
+        "text": "<p>ST33LE is a premium sportswear and swimwear specialty niche brand designed especially for the fashion forward athletic male who craves for innovative styling, unparalleled comfort, and high-quality craftsmanship.<\/p><p><\/p><p>Not your traditional sportswear and swimwear brand, ST33LE offers unique fabrications, bright colors, fun prints, and bold patterns that set it apart from other brands. Each item is meticulously designed with a keen focus on fit and function, fusing positively conscious fabrics with out-of-the-box styling.<\/p><p><\/p><p><\/p>"
+      }
+    },
+    "7d757a1a-2317-45f4-87fc-c0403e351e4b": {
+      "type": "overtitle-with-content",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/iStock-522892743_4f9d3b7d-f310-4f88-916b-a669a5f5b746.png",
+        "over_img": "shopify:\/\/shop_images\/Party_2_8b3fb64a-5327-4723-b9aa-dfe2cf6c088f.png",
+        "title": "LEISURE  FOR  DAYS"
+      }
+    },
+    "3b8fe3ea-ba32-4ffe-b053-e3303b90546f": {
+      "type": "ST33LE",
+      "settings": {
+        "text": "<p>ST33LE is a premium sportswear and swimwear specialty niche brand designed especially for the fashion forward athletic male who craves for innovative styling, unparalleled comfort, and high-quality craftsmanship.<\/p><p><\/p><p>Not your traditional sportswear and swimwear brand, ST33LE offers unique fabrications, bright colors, fun prints, and bold patterns that set it apart from other brands. Each item is meticulously designed with a keen focus on fit and function, fusing positively conscious fabrics with out-of-the-box styling.<\/p>",
+        "icon": "shopify:\/\/shop_images\/Group_6_95eead1c-47f5-4f00-869d-799460d85910.png"
+      }
+    }
+  },
+  "order": [
+    "3d9d16b7-91b2-4770-a4d4-5ef1fa06461d",
+    "4a27733f-4239-43f5-952f-8b5c4ee67b12",
+    "bc437da7-16f4-41fc-b2ac-9fbf9eb0100b",
+    "f9a0dcbe-90cb-45c9-962b-c1290d49cb66",
+    "7d757a1a-2317-45f4-87fc-c0403e351e4b",
+    "3b8fe3ea-ba32-4ffe-b053-e3303b90546f"
+  ]
+}

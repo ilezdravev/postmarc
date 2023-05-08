@@ -1,11 +1,16 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "new-main-product",
       "blocks": {
         "product_meta": {
           "type": "product_meta",
+          "disabled": true,
           "settings": {
+            "show_vendor": true,
+            "show_sku": false,
+            "show_product_rating": false,
+            "show_taxes_included": false
           }
         },
         "description": {
@@ -15,22 +20,30 @@
         },
         "share_buttons": {
           "type": "share_buttons",
+          "disabled": true,
           "settings": {
           }
         },
         "variant_selector": {
           "type": "variant_selector",
           "settings": {
+            "selector_mode": "dropdown",
+            "show_color_swatch": false,
+            "show_color_carousel": false,
+            "size_chart": ""
           }
         },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {
+            "show_label": false
           }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
+            "show_price_in_button": false,
+            "show_payment_button": true
           }
         }
       },
@@ -43,22 +56,113 @@
         "buy_buttons"
       ],
       "settings": {
+        "image_size": "large",
+        "stack_images": true,
+        "show_thumbnails": true,
+        "enable_image_zoom": true,
+        "enable_video_looping": false
       }
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
+        "heading": "You may also like",
+        "recommendations_count": 4,
+        "show_product_info": true,
+        "show_vendor": false,
+        "show_color_swatch": false
       }
     },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
+      "disabled": true,
       "settings": {
+        "title": "Recently viewed",
+        "show_product_info": true,
+        "show_vendor": false,
+        "show_color_swatch": false
+      }
+    },
+    "7ac42f24-754f-4b4e-ba00-a8070c44c216": {
+      "type": "featured-products",
+      "blocks": {
+        "34e0b940-0009-4168-b3dc-601fcf314bab": {
+          "type": "product",
+          "settings": {
+            "product": "aqua-5-inseam-stretch-knit-jeans-shorts"
+          }
+        },
+        "b985f2fc-39de-4ca2-84cc-bbcd995cee1e": {
+          "type": "product",
+          "settings": {
+            "product": "aqua-navy-geo-6-stretch-mesh-performance-shorts"
+          }
+        },
+        "96b384cb-9be6-4a7f-afcd-f9b1613c0c5d": {
+          "type": "product",
+          "settings": {
+            "product": "aqua-navy-geo-6-stretch-mesh-performance-shorts"
+          }
+        },
+        "114f0ed4-9591-4582-a9e0-539df1d493b1": {
+          "type": "product",
+          "settings": {
+            "product": "aqua-5-inseam-stretch-knit-jeans-shorts"
+          }
+        },
+        "6d44320d-5319-4466-9c44-738784f2bb79": {
+          "type": "product",
+          "settings": {
+            "product": "aqua-butterflies-mesh-stretch-tank-top"
+          }
+        }
+      },
+      "block_order": [
+        "34e0b940-0009-4168-b3dc-601fcf314bab",
+        "b985f2fc-39de-4ca2-84cc-bbcd995cee1e",
+        "96b384cb-9be6-4a7f-afcd-f9b1613c0c5d",
+        "114f0ed4-9591-4582-a9e0-539df1d493b1",
+        "6d44320d-5319-4466-9c44-738784f2bb79"
+      ],
+      "settings": {
+        "heading": "TURN HEADS WITH THESE",
+        "number": 4,
+        "mobile_number": 1
+      }
+    },
+    "1fac181f-d10e-449e-9842-7e7be16840cc": {
+      "type": "featured-products",
+      "blocks": {
+        "769c83f3-e429-4878-b413-1616b8702359": {
+          "type": "product",
+          "settings": {
+            "product": "aqua-butterflies-mesh-stretch-tank-top"
+          }
+        },
+        "f49941e1-26d6-4c4f-86ec-6680594891c3": {
+          "type": "product",
+          "settings": {
+            "product": "aqua-honeycomb-mesh-performance-tank"
+          }
+        }
+      },
+      "block_order": [
+        "769c83f3-e429-4878-b413-1616b8702359",
+        "f49941e1-26d6-4c4f-86ec-6680594891c3"
+      ],
+      "settings": {
+        "heading": "TURN HEADS WITH THESE",
+        "number": 4,
+        "mobile_number": 1
       }
     }
   },
   "order": [
     "main",
     "product-recommendations",
-    "recently-viewed-products"
+    "recently-viewed-products",
+    "7ac42f24-754f-4b4e-ba00-a8070c44c216",
+    "1fac181f-d10e-449e-9842-7e7be16840cc"
   ]
 }

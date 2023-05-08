@@ -1,0 +1,60 @@
+<style>
+    .image-with-text--{{ section.id }}{
+        background-color:black;
+        padding: 90px 0;
+    }
+    .image-with-text .content-wrap{
+        background-image: url("{{ section.settings.bg_image | img_url : "2000x" }}");
+    } 
+    @media (max-width: 1000px){
+        .image-with-text--{{ section.id }}{
+            padding: 40px 0;
+        }
+    }
+</style>
+<div class="image-with-text--{{ section.id }}">
+    <div class="image-with-text">
+        <div class="image-wrap">
+            <img src="{{ section.settings.image | img_url : "2000x" }}" width="" height="" loading="lazy" alt="{{ section.settings.image.alt | escape }}"/>
+        </div>
+        <div class="content-wrap">
+            <h1 class="title">{{ section.settings.title }} </h1>
+            <p class="description"> {{ section.settings.text }}</p>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name":"Image with text",
+        "settings": [
+            {
+                "type":"image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id":"title",
+                "label": "Title Text",
+                "default": "PERFORMANCE STRENGTH COMFORT STYLE"
+            },
+            {
+                "type": "image_picker",
+                "id":"bg_image",
+                "label": "Content Background Image"
+            },
+            {
+                "type": "text",
+                "id": "text",
+                "label": "description",
+                "default":"ST33LE is a premium sportswear and swimwear specialty niche brand designed especially for the fashion forward athletic male who craves for innovative styling, unparalleled comfort, and high-quality craftsmanship."
+            }
+        ],
+        "presets": [
+            {
+                "name" : "Image with text"
+            }
+        ]
+    }
+{% endschema %}

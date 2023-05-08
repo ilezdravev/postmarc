@@ -148,12 +148,12 @@
       "price_filter_from": "From",
       "price_filter_to": "To",
       "show_filter": "Show filters",
-      "all": "Filters",
+      "all": "Filter by",
       "reset": "Reset",
       "apply": "See results"
     },
     "sorting": {
-      "title": "Sort",
+      "title": "Sort by",
       "show_sort": "Show sort by"
     },
     "layout": {
@@ -346,7 +346,7 @@
         "one": "Only {{count}} piece in stock!",
         "other": "Only {{count}} pieces in stock!"
       },
-      "add_to_cart": "Add to cart",
+      "add_to_cart": "Add to Bag",
       "sold_out": "Sold Out",
       "pre_order": "Pre-order",
       "unavailable": "Unavailable",

@@ -1202,6 +1202,7 @@
     }, {
       key: "_valueChanged",
       value: function _valueChanged(event) {
+       
         Dom.getSiblings(event.target, '.is-selected').forEach(function (item) {
           return item.classList.remove('is-selected');
         });
@@ -1209,6 +1210,9 @@
 
         this.onValueChanged(event.target.getAttribute('data-value'), event.target, this.activator);
         this.close();
+        if(document.querySelector('.ProductForm__Option.is-open')){
+          document.querySelector('.ProductForm__Option.is-open').classList.remove('is-open')
+        }
       }
     }, {
       key: "_onFocusOut",
@@ -2551,6 +2555,7 @@
         if (activator) {
           this['option' + target.getAttribute('data-option-position')] = newValue;
           activator.querySelector('.ProductForm__SelectedValue').innerHTML = newValue;
+
         } else {
           this['option' + target.getAttribute('data-option-position')] = target.value;
           var selectedValue = target.closest('.ProductForm__Option').querySelector('.ProductForm__SelectedValue');
@@ -2633,7 +2638,6 @@
 
         addToCartButton.setAttribute('disabled', 'disabled');
         document.dispatchEvent(new CustomEvent('theme:loading:start')); // Then we add the product in Ajax
-
         var formElement = this.element.querySelector('form[action*="/cart/add"]');
         fetch("".concat(window.routes.cartAddUrl, ".js"), {
           body: JSON.stringify(Form.serialize(formElement)),
@@ -2650,14 +2654,17 @@
 
           if (response.ok) {
             addToCartButton.removeAttribute('disabled'); // We simply trigger an event so the mini-cart can re-render
-
-            _this4.element.dispatchEvent(new CustomEvent('product:added', {
-              bubbles: true,
-              detail: {
-                variant: _this4.currentVariant,
-                quantity: quantityElement ? parseInt(quantityElement.value) : 1
-              }
-            }));
+            if(!addToCartButton.classList.contains('show-added-cart-model')){
+              _this4.element.dispatchEvent(new CustomEvent('product:added', {
+                bubbles: true,
+                detail: {
+                  variant: _this4.currentVariant,
+                  quantity: quantityElement ? parseInt(quantityElement.value) : 1
+                }
+              }))
+            }else{
+              document.querySelector('.added-to-cart-model').classList.add('active');
+            }
           } else {
             response.json().then(function (content) {
               var errorMessageElement = document.createElement('span');
@@ -3003,18 +3010,11 @@
       value: function _toggleSearch(event) {
         if (this.isOpen) {
           this._closeSearch(event);
-          document.querySelector('.Header__Wrapper').querySelector('[close-search-bar]').classList.add('hide')
-          document.querySelector('.Header__Wrapper').querySelector('[open-search-bar]').classList.remove('hide')
-          document.querySelector('.Header__Wrapper').querySelectorAll('[close-search-bar]')[1].classList.add('hide')
-          document.querySelector('.Header__Wrapper').querySelectorAll('[open-search-bar]')[1].classList.remove('hide')
-
+         
 
         } else {
           this._openSearch(event);
-          document.querySelector('.Header__Wrapper').querySelector('[close-search-bar]').classList.remove('hide')
-          document.querySelector('.Header__Wrapper').querySelector('[open-search-bar]').classList.add('hide')
-          document.querySelector('.Header__Wrapper').querySelectorAll('[close-search-bar]')[1].classList.remove('hide')
-          document.querySelector('.Header__Wrapper').querySelectorAll('[open-search-bar]')[1].classList.add('hide')
+        
         }
 
         event.preventDefault();
@@ -3042,6 +3042,10 @@
         this.isOpen = true;
         this.pageOverlayElement.classList.add('is-visible');
         document.querySelector('#shopify-section-header').style.zIndex = 10;
+        document.querySelector('.Header__Wrapper').querySelector('[close-search-bar]').classList.remove('hide')
+        document.querySelector('.Header__Wrapper').querySelector('[open-search-bar]').classList.add('hide')
+        document.querySelector('.Header__Wrapper').querySelectorAll('[close-search-bar]')[1].classList.remove('hide')
+        document.querySelector('.Header__Wrapper').querySelectorAll('[open-search-bar]')[1].classList.add('hide')
       }
       /**
        * Close the search form and clear focus
@@ -3067,6 +3071,13 @@
 
         this.pageOverlayElement.addEventListener('transitionend', onTransitionEnd);
         this.pageOverlayElement.classList.remove('is-visible');
+        document.querySelector('.Header__Wrapper').querySelector('[close-search-bar]').classList.add('hide')
+        document.querySelector('.Header__Wrapper').querySelector('[open-search-bar]').classList.remove('hide')
+        document.querySelector('.Header__Wrapper').querySelectorAll('[close-search-bar]')[1].classList.add('hide')
+        document.querySelector('.Header__Wrapper').querySelectorAll('[open-search-bar]')[1].classList.remove('hide')
+
+        // document.querySelector('[open-search-bar]').classList.remove('hide');
+        // document.querySelector('[close-search-bar]').classList.add('hide')
       }
       /**
        * In order to prevent an odd UX where hitting the enter always choose the product results, if the search is set to product + something else,
@@ -3645,7 +3656,7 @@
         var quantity = null,
             elementToAnimate = null;
 
-        if (target.tagName === 'INPUT') {
+        if (target.tagName === 'INPUT' || target.tagName === 'SELECT') {
           quantity = parseInt(Math.max(parseInt(target.value) || 1, 1));
         } else {
           quantity = parseInt(target.getAttribute('data-quantity'));
@@ -3899,7 +3910,6 @@
       this.settings = JSON.parse(this.element.getAttribute('data-section-settings')); // Create the popover if available
 
       var sortPopoverElement = document.getElementById('collection-sort-popover');
-
       if (sortPopoverElement) {
         this.sortPopover = new Popover(sortPopoverElement, {
           onValueChanged: this._sortByChanged.bind(this)
@@ -4107,6 +4117,7 @@
     }, {
       key: "_onFiltersCleared",
       value: function _onFiltersCleared(event) {
+        alert(event)
         this._reloadProducts(event.target.getAttribute('data-url'));
       }
     }, {

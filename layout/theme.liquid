@@ -6,7 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="theme-color" content="{{ settings.accent_color }}">
-
+    <style>
+      @font-face {
+        font-family: 'Very Vogue Display';
+        src: url("https://cdn.shopify.com/s/files/1/0246/6853/6925/files/VeryVogue-Display.otf?v=1683426634") format('opentype');
+      }
+      @font-face {
+        font-family: 'Very Vogue Display';
+        src: "https://cdn.shopify.com/s/files/1/0246/6853/6925/files/VeryVogue-Display.otf?v=1683426634" format('opentype');
+        font-style: 'italic';
+      }
+    </style>
     <title>
       {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
     </title>
@@ -25,9 +35,13 @@
     {% render 'css-variables' %}
 
     {{ content_for_header }}
-
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
-
+    <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
+    <script src="{{ custom.js | asset_url }}"></script>
+   
     <script>
       {%- if request.page_type == 'policy' -%}
         document.addEventListener('DOMContentLoaded', function() {
@@ -178,7 +192,8 @@
     {% section 'sidebar-menu' %}
 
     {%- if template != 'cart' -%}
-      {% render 'cart-drawer' %}
+      {% comment %} {% render 'cart-drawer' %} {% endcomment %}
+      {% section 'mini-cart' %}
     {%- endif -%}
 
     <div class="PageContainer">

@@ -11,7 +11,7 @@
             {% endif %}
           </div>
           <div class="texts-content">
-            <h3 class="title">{{ block.settings.title }}</h3>
+            <h3 class="title" style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</h3>
             <div class="subtitle">{{ block.settings.subtitle }}</div>
           </div>
         </div>
@@ -54,6 +54,11 @@
             "type": "text",
             "id": "title",
             "label": "Title"
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Color"
           },
           {
             "type": "richtext",
